@@ -1,40 +1,56 @@
-class Usuario {
+public class Usuario {
+    
+    private String nome;
+    private String email;
+    private String senha;
 
-    // atributos
-    private String user, password;
-
-    public void criarCadastro(String user, String password) {
-        this.user = user;
-        this.password = password;
+    //Construtor
+    public Usuario(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
     }
 
-    public void lerCadastro(String user, String password) {
-        System.out.println("O seu usuario e senha é: " + user + password);
+    //Metodos
+    public void criarCadastro() {
+    
     }
 
-    public void efetuarLogin(String user, String password) {
-        System.out.println("Digite seu usuario e senha: ");
+    public void atualizarCadastro() {
+
     }
 
-    // getters
-    public String getUser() {
-        return user;
+    public void deletarCadastro() {
+
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    // setters
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean getPassword(String senha1) {
+    public boolean efetuarLogin(String email, String senha, String nome) {
         return false;
+    }
+
+    //Setters
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha =senha;
+    }
+
+    //Getters
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSenha() {
+        return senha;
     }
 }
