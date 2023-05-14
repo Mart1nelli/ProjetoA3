@@ -1,6 +1,10 @@
 public class UsuarioComum extends Usuario {
-    String resultado;
-    String resposta;
+    private String resultado;
+    private String resposta;
+
+    public UsuarioComum(String string, String string1) {
+        
+    }
 
     public void responderQuestao(String resposta) {
         System.out.println("Sua resposta é: " + resposta);

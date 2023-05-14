@@ -2,10 +2,12 @@ import java.util.Scanner;
 
 public class CadastroLoginSenha {
 
+    private static String senha;
+
     public static void main(String[] args) {
 
         Usuario p1 = new Usuario();
-        UsuarioComum p2 = new UsuarioComum();
+        UsuarioComum p2 = new UsuarioComum(null, null);
         Administrador p3 = new Administrador();
 
         Scanner input = new Scanner(System.in);
@@ -13,7 +15,7 @@ public class CadastroLoginSenha {
         Usuario[] usuarios = new Usuario[2];
 
         usuarios[0] = new UsuarioComum("User123", "123456");
-        usuarios[1] = new Administrador("User123", "123456");
+        usuarios[1] = new Administrador("Admin@123", "123456");
 
         System.out.println("Usuario: ");
         String usuario1 = input.nextLine();
