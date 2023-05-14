@@ -1,16 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-package com.mycompany.quiz;
-
-/**
- *
- * @author mathe
- */
 public class Quiz {
+    
+    public void exibirQuestao() {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    }
+
+    public void realizarQuestao() {
+
+    }
+
+    public void exibirPontuacao() {
+        
     }
 }
