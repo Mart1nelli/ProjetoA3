@@ -20,9 +20,9 @@ public class ConnectionFactory {
     
     public Connection obtemConexao(){
         try{
-            Connection c = DriverManager.getConnection("jdbc:mysql://"+host+":"+porta+"/"+bd,usuario,senha);
+            Connection c = DriverManager.getConnection("jdbc:mysql://"+host+":"+porta+"/"+bd+"?user="+usuario+"&password="+senha+"&useTimezone=true&serverTimezone=America/Sao_Paulo");
             return c;
-        }catch(Excpetion e){
+        }catch(Exception e){
             e.printStackTrace();
             return null;
         } 
