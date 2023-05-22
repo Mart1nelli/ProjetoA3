@@ -52,5 +52,35 @@ public class UsuarioDAO {
     
     }
     
+    public boolean existeNomeUser(Usuario usuario) throws Exception{
+        String sql = "SELECT * FROM tb_usuario WHERE nome = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, usuario.getNome());
+            try(ResultSet rs = ps.executeQuery()){
+                return rs.next();
+            }
+        
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+    
+    }
+    
+    public boolean existeEmailUser(Usuario usuario) throws Exception{
+        String sql = "SELECT * FROM tb_usuario WHERE email = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, usuario.getEmail());
+            try(ResultSet rs = ps.executeQuery()){
+                return rs.next();
+            }
+        
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+    
+    }
+    
 }  
 

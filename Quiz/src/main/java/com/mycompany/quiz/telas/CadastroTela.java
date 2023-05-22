@@ -10,6 +10,7 @@ package com.mycompany.quiz.telas;
  */
 import com.mycompany.quiz.Usuario;
 import com.mycompany.quiz.daos.UsuarioDAO;
+import javax.swing.JOptionPane;
 
 public class CadastroTela extends javax.swing.JFrame {
 
@@ -108,14 +109,45 @@ public class CadastroTela extends javax.swing.JFrame {
         String nome = txf_nome.getText();
         String email = txf_email.getText();
         String senha = new String(pwf_senha.getPassword());
-        usuarios.setNome(nome);
-        usuarios.setEmail(email);
-        usuarios.setSenha(senha);
-        dao.adicionaUser(usuarios);
-        txf_nome.setText("");
-        txf_email.setText("");
-        pwf_senha.setText("");
-        
+       
+        try {
+            usuarios.setNome(nome);
+            usuarios.setEmail(email);
+            usuarios.setSenha(senha);
+            if(nome.equals("") || email.equals("") || senha.equals("")){
+                JOptionPane.showMessageDialog(null, "Nome, email, ou senha inválidos");
+            }else{
+                if(dao.existeNomeUser(usuarios)){
+                    JOptionPane.showMessageDialog(null, "Nome ja existênte");
+                    txf_nome.setText("");
+                }
+                if(dao.existeEmailUser(usuarios)){
+                    if(email.equals("administrador@squizz.com")){
+                        dao.adicionaUser(usuarios);
+                        JOptionPane.showMessageDialog(null,"Cadastro de Administrador realizado!");
+                        txf_nome.setText("");
+                        txf_email.setText("");
+                        pwf_senha.setText("");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Email ja existênte");
+                        txf_email.setText("");
+                    }
+                }
+                if(!dao.existeNomeUser(usuarios) && !dao.existeEmailUser(usuarios)){
+                    dao.adicionaUser(usuarios);
+                    JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
+                    txf_nome.setText("");
+                    txf_email.setText("");
+                    pwf_senha.setText("");
+                }
+            }
+            
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Problemas técnicos tente novamente mais tarde");
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btn_criaCadastroActionPerformed
 
     /**
