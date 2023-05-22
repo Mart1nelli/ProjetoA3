@@ -1,4 +1,4 @@
-public class Questao {
+/*public class Questao {
 
     private String textoPergunta;
     private String textoAlternativaA;
