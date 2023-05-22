@@ -1,4 +1,4 @@
-public class UsuarioComum extends Usuario {
+/*public class UsuarioComum extends Usuario {
     String resultado;
     String resposta;
 
