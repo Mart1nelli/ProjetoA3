@@ -122,14 +122,17 @@ public class CadastroTela extends javax.swing.JFrame {
                     txf_nome.setText("");
                 }
                 if(dao.existeEmailUser(usuarios)){
-                    if(email.equals("administrador@squizz.com")){
+                    if(email.equals("administrador@squizz.com") && !dao.existeNomeUser(usuarios)){
                         dao.adicionaUser(usuarios);
                         JOptionPane.showMessageDialog(null,"Cadastro de Administrador realizado!");
                         txf_nome.setText("");
                         txf_email.setText("");
                         pwf_senha.setText("");
+                    }else if(email.equals("administrador@squizz.com") && dao.existeNomeUser(usuarios)){
+                        JOptionPane.showMessageDialog(null, "Por favor insira outro nome para se cadastrar como administrador");
+                        txf_nome.setText("");
                     }else{
-                        JOptionPane.showMessageDialog(null, "Email ja existênte");
+                        JOptionPane.showMessageDialog(null,"Email já existente");
                         txf_email.setText("");
                     }
                 }
