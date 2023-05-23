@@ -63,6 +63,12 @@ public class QuestoesTela extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de questões"));
 
+        questoesComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                questoesComboBoxActionPerformed(evt);
+            }
+        });
+
         txf_pergunta.setBorder(javax.swing.BorderFactory.createTitledBorder("Pergunta"));
 
         txf_alternativaA.setBorder(javax.swing.BorderFactory.createTitledBorder("Alternativa A"));
@@ -158,6 +164,32 @@ public class QuestoesTela extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void questoesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questoesComboBoxActionPerformed
+        // TODO add your handling code here:
+        try{
+            QuestaoDAO dao = new QuestaoDAO();
+            Questao [] questoes = dao.obterQuestoes();
+            int posicao = questoesComboBox.getSelectedIndex();
+            String pergunta = questoes[posicao].getPergunta();
+            String alternativaA = questoes[posicao].getAlternativaA();
+            String alternativaB = questoes[posicao].getAlternativaB();
+            String alternativaC = questoes[posicao].getAlternativaC();
+            String alternativaD = questoes[posicao].getAlternativaD();
+            String alternativaCorreta = questoes[posicao].getAlternativaCorreta();
+            String justificativa = questoes[posicao].getJustificativa();
+            txf_pergunta.setText(pergunta);
+            txf_alternativaA.setText(alternativaA);
+            txf_alternativaB.setText(alternativaB);
+            txf_alternativaC.setText(alternativaC);
+            txf_alternativaD.setText(alternativaD);
+            txf_alternativaCorreta.setText(alternativaCorreta);
+            txf_justificativa.setText(justificativa);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Tente mais tarde");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_questoesComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
