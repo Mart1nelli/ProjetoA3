@@ -14,7 +14,9 @@ public class GerenciamentoTela extends javax.swing.JFrame {
      * Creates new form GerenciamentoTela
      */
     public GerenciamentoTela() {
+        super("Squizz");
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -8,6 +8,7 @@ package com.mycompany.quiz.telas;
  *
  * @author mathe
  */
+import com.mycompany.quiz.Sessao;
 import com.mycompany.quiz.Usuario;
 import com.mycompany.quiz.daos.UsuarioDAO;
 import javax.swing.JOptionPane;
@@ -17,6 +18,8 @@ public class LoginTela extends javax.swing.JFrame {
     /**
      * Creates new form LoginTela
      */
+    
+    
     public LoginTela() {
         super("Squizz");
         initComponents();
@@ -100,12 +103,14 @@ public class LoginTela extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         Usuario usuarios = new Usuario();
+        Sessao sessao = Sessao.getInstance();
         UsuarioDAO dao = new UsuarioDAO();
         String nome = txf_nome.getText();
         String senha = new String(pwf_senha.getPassword());
         try{
             usuarios.setNome(nome);
             usuarios.setSenha(senha);
+            sessao.setNomeLogin(nome);
             if(dao.existeUser(usuarios)){
                 JOptionPane.showMessageDialog(null, "Bem vindo ao sistema");
                 MenuJogoTela mj = new MenuJogoTela();

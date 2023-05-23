@@ -8,6 +8,13 @@ package com.mycompany.quiz.telas;
  *
  * @author mathe
  */
+import com.mycompany.quiz.Sessao;
+import com.mycompany.quiz.Usuario;
+import com.mycompany.quiz.daos.UsuarioDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class MenuJogoTela extends javax.swing.JFrame {
 
@@ -90,7 +97,26 @@ public class MenuJogoTela extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_sairActionPerformed
 
     private void btn_gerenciamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gerenciamentoActionPerformed
-        // TODO add your handling code here: 
+        // TODO add your handling code here:
+        Usuario usuarios = new Usuario();
+        UsuarioDAO dao = new UsuarioDAO();
+        Sessao sessao = Sessao.getInstance();
+        String nome = sessao.getNomeLogin();
+        usuarios.setNome(nome);
+        try{
+            String email = dao.getEmailUser(usuarios);
+            if(email.equals("administrador@squizz.com")){
+                GerenciamentoTela gt = new GerenciamentoTela();
+                gt.setVisible(true);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Você nao tem acesso");
+            }
+        }catch(SQLException u){
+            throw new RuntimeException(u);
+        } catch (Exception ex) {
+            Logger.getLogger(MenuJogoTela.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_gerenciamentoActionPerformed
 
     /**

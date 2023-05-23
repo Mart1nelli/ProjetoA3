@@ -82,5 +82,23 @@ public class UsuarioDAO {
     
     }
     
+    public String getEmailUser(Usuario usuario) throws Exception{
+        String sql = "SELECT * FROM tb_usuario WHERE nome = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, usuario.getNome());
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                String email = rs.getString("email");
+                return email;
+            }else{
+                return null;
+            }
+        }catch(SQLException u){
+            throw new RuntimeException(u); 
+        }
+       
+    }
+    
 }  
 
