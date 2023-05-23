@@ -84,6 +84,11 @@ public class QuestoesTela extends javax.swing.JFrame {
         txf_justificativa.setBorder(javax.swing.BorderFactory.createTitledBorder("Justificativa"));
 
         btn_novo.setText("Novo");
+        btn_novo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_novoActionPerformed(evt);
+            }
+        });
 
         btn_atualizar.setText("Atualizar");
 
@@ -190,6 +195,34 @@ public class QuestoesTela extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_questoesComboBoxActionPerformed
+
+    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
+        // TODO add your handling code here:
+        try{
+            String pergunta = txf_pergunta.getText();
+            String alternativaA = txf_alternativaA.getText();
+            String alternativaB = txf_alternativaB.getText();
+            String alternativaC = txf_alternativaC.getText();
+            String alternativaD = txf_alternativaD.getText();
+            String alternativaCorreta = txf_alternativaCorreta.getText();
+            String justificativa = txf_justificativa.getText();
+            Questao questao = new Questao(pergunta, alternativaA, alternativaB, alternativaC, alternativaD, alternativaCorreta, justificativa);
+            QuestaoDAO dao = new QuestaoDAO();
+            dao.criaQuestao(questao);
+            JOptionPane.showMessageDialog(null, "Questão criada com sucesso!");
+            txf_pergunta.setText("");
+            txf_alternativaA.setText("");
+            txf_alternativaB.setText("");
+            txf_alternativaC.setText("");
+            txf_alternativaD.setText("");
+            txf_alternativaCorreta.setText("");
+            txf_justificativa.setText("");
+            buscarQuestoes();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Problemas técnicos");
+            e.printStackTrace();
+        }    
+    }//GEN-LAST:event_btn_novoActionPerformed
 
     /**
      * @param args the command line arguments

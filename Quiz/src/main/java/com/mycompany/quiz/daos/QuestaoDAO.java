@@ -22,6 +22,26 @@ public class QuestaoDAO {
         this.connection = new ConnectionFactory().obtemConexao();
     }
     
+    public void criaQuestao(Questao questao) {
+        String sql = "INSERT INTO tb_questao (pergunta, alternativaA, alternativaB," + 
+                 " alternativaC, alternativaD, alternativaCorreta, justificativa) VALUES"
+                 + " (?,?,?,?,?,?,?)";
+        try{
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, questao.getPergunta());
+            ps.setString(2, questao.getAlternativaA());
+            ps.setString(3,questao.getAlternativaB());
+            ps.setString(4,questao.getAlternativaC());
+            ps.setString(5,questao.getAlternativaD());
+            ps.setString(6,questao.getAlternativaCorreta());
+            ps.setString(7, questao.getJustificativa());
+            ps.execute();
+            ps.close();
+        }catch(SQLException u){
+            throw new RuntimeException(u);
+        }
+    }
+    
     public Questao [] obterQuestoes () throws Exception {
         String sql = "SELECT * FROM tb_questao";
         try {
@@ -48,4 +68,5 @@ public class QuestaoDAO {
         }
     
     }
+    
 }

@@ -10,10 +10,26 @@ public class Questao {
     private String alternativaCorreta;
     private String justificativa;
     
+    public Questao(){
+    
+    }
+    
     public Questao(int id, String pergunta, String alternativaA, String alternativaB, 
     String alternativaC, String alternativaD, String alternativaCorreta, String justificativa)
     {
         this.id = id;
+        this.pergunta = pergunta;
+        this.alternativaA = alternativaA;
+        this.alternativaB = alternativaB;
+        this.alternativaC = alternativaC;
+        this.alternativaD = alternativaD;
+        this.alternativaCorreta = alternativaCorreta;
+        this.justificativa = justificativa;
+    }
+    
+    public Questao(String pergunta, String alternativaA, String alternativaB, 
+    String alternativaC, String alternativaD, String alternativaCorreta, String justificativa)
+    {
         this.pergunta = pergunta;
         this.alternativaA = alternativaA;
         this.alternativaB = alternativaB;
