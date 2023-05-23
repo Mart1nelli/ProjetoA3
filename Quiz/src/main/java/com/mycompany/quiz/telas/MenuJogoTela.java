@@ -110,7 +110,7 @@ public class MenuJogoTela extends javax.swing.JFrame {
                 gt.setVisible(true);
                 this.dispose();
             }else{
-                JOptionPane.showMessageDialog(null, "Você nao tem acesso");
+                JOptionPane.showMessageDialog(null, "Você não tem acesso :(");
             }
         }catch(SQLException u){
             throw new RuntimeException(u);
