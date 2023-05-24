@@ -57,12 +57,11 @@ public class QuestoesTela extends javax.swing.JFrame {
         btn_novo = new javax.swing.JButton();
         btn_atualizar = new javax.swing.JButton();
         btn_remover = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de questões"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
         questoesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,19 +69,19 @@ public class QuestoesTela extends javax.swing.JFrame {
             }
         });
 
-        txf_pergunta.setBorder(javax.swing.BorderFactory.createTitledBorder("Pergunta"));
+        txf_pergunta.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
-        txf_alternativaA.setBorder(javax.swing.BorderFactory.createTitledBorder("Alternativa A"));
+        txf_alternativaA.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
-        txf_alternativaB.setBorder(javax.swing.BorderFactory.createTitledBorder("Alternativa B"));
+        txf_alternativaB.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
-        txf_alternativaC.setBorder(javax.swing.BorderFactory.createTitledBorder("Alternativa C"));
+        txf_alternativaC.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
-        txf_alternativaD.setBorder(javax.swing.BorderFactory.createTitledBorder("Alternativa D"));
+        txf_alternativaD.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
-        txf_alternativaCorreta.setBorder(javax.swing.BorderFactory.createTitledBorder("Alternativa Correta"));
+        txf_alternativaCorreta.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
-        txf_justificativa.setBorder(javax.swing.BorderFactory.createTitledBorder("Justificativa"));
+        txf_justificativa.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
         btn_novo.setText("Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
@@ -92,10 +91,18 @@ public class QuestoesTela extends javax.swing.JFrame {
         });
 
         btn_atualizar.setText("Atualizar");
+        btn_atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atualizarActionPerformed(evt);
+            }
+        });
 
         btn_remover.setText("Remover");
-
-        jButton2.setText("Cancelar");
+        btn_remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_removerActionPerformed(evt);
+            }
+        });
 
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -126,13 +133,9 @@ public class QuestoesTela extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btn_remover, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btn_voltar)
+                        .addGap(0, 14, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(btn_voltar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,14 +157,13 @@ public class QuestoesTela extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txf_justificativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_remover, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_voltar)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_voltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_remover, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -245,6 +247,59 @@ public class QuestoesTela extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
 
+    private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
+        // TODO add your handling code here:
+        try {
+            QuestaoDAO dao = new QuestaoDAO();
+            Questao [] questoes = dao.obterQuestoes();
+            int posicao = questoesComboBox.getSelectedIndex();
+            String pergunta = txf_pergunta.getText();
+            String alternativaA = txf_alternativaA.getText();
+            String alternativaB = txf_alternativaB.getText();
+            String alternativaC = txf_alternativaC.getText();
+            String alternativaD = txf_alternativaD.getText();
+            String alternativaCorreta = txf_alternativaCorreta.getText();
+            String justificativa = txf_justificativa.getText();
+            questoes[posicao].setPergunta(pergunta);
+            questoes[posicao].setAlternativaA(alternativaA);
+            questoes[posicao].setAlternativaB(alternativaB);
+            questoes[posicao].setAlternativaC(alternativaC);
+            questoes[posicao].setAlternativaD(alternativaD);
+            questoes[posicao].setAlternativaCorreta(alternativaCorreta);
+            questoes[posicao].setJustificativa(justificativa);
+            dao.atualizaQuestao(questoes[posicao]);
+            JOptionPane.showMessageDialog(null, "Questão atualizada com sucesso");
+            buscarQuestoes();
+           
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Problemas técnicos volte mais tarde");
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_btn_atualizarActionPerformed
+
+    private void btn_removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removerActionPerformed
+        // TODO add your handling code here:
+        try {
+            QuestaoDAO dao = new QuestaoDAO();
+            Questao [] questoes = dao.obterQuestoes();
+            int posicao = questoesComboBox.getSelectedIndex();
+            dao.removeQuestao(questoes[posicao]);
+            JOptionPane.showMessageDialog(null, "Questão excluida com sucesso");
+            txf_pergunta.setText("");
+            txf_alternativaA.setText("");
+            txf_alternativaB.setText("");
+            txf_alternativaC.setText("");
+            txf_alternativaD.setText("");
+            txf_alternativaCorreta.setText("");
+            txf_justificativa.setText("");
+            buscarQuestoes();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Problemas técnicos tente novamente mais tarde");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btn_removerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -285,7 +340,6 @@ public class QuestoesTela extends javax.swing.JFrame {
     private javax.swing.JButton btn_novo;
     private javax.swing.JButton btn_remover;
     private javax.swing.JButton btn_voltar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<Questao> questoesComboBox;
     private javax.swing.JTextField txf_alternativaA;
