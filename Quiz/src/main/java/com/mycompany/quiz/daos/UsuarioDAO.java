@@ -147,6 +147,54 @@ public class UsuarioDAO {
        
     }
     
+    public void atualizaPontuacaoUser(Usuario usuario){
+        String sql = "UPDATE tb_usuario SET pontuacao = ? WHERE id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            int pontuacao = usuario.getPontuacao();
+            pontuacao = pontuacao + 1;
+            ps.setInt(1, pontuacao);
+            ps.setInt(2, usuario.getId());
+            ps.execute();
+        }catch(SQLException u){
+            throw new RuntimeException(u);
+        }
+                
+    
+    }
+    
+    public void resetPontuacaoUser(Usuario usuario){
+        String sql = "UPDATE tb_usuario SET pontuacao = 0 WHERE id = ?";
+        try{
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, usuario.getId());
+            ps.execute();
+            
+        }catch(SQLException u){
+            throw new RuntimeException(u);
+        }
+    
+    
+    }
+    
+    public int getPontuacaoUser(Usuario usuario) throws Exception{
+        String sql = "SELECT * FROM tb_usuario WHERE nome = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, usuario.getNome());
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                int pontuacao = rs.getInt("pontuacao");
+                return pontuacao;
+            }else{
+                return 0;
+            }
+        }catch(SQLException u){
+            throw new RuntimeException(u); 
+        }
+       
+    }
+    
     public Usuario [] obterUsuarios () throws Exception {
         String sql = "SELECT * FROM tb_usuario";
         try {

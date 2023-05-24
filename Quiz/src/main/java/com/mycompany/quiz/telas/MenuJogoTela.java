@@ -44,6 +44,11 @@ public class MenuJogoTela extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_jogar.setText("Jogar");
+        btn_jogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_jogarActionPerformed(evt);
+            }
+        });
 
         btn_gerenciamento.setText("Gerenciamento");
         btn_gerenciamento.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +135,15 @@ public class MenuJogoTela extends javax.swing.JFrame {
         ct.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_contaActionPerformed
+
+    private void btn_jogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jogarActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null , "Serão cinco perguntas relacionadas"
+                + " a agua e suas blablablabla");
+        JogoTela jt = new JogoTela();
+        jt.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_jogarActionPerformed
 
     /**
      * @param args the command line arguments

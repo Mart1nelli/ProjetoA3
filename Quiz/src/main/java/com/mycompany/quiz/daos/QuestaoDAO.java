@@ -74,6 +74,22 @@ public class QuestaoDAO {
         }
     }
     
+    public int getTotalQuestoes() {
+        String sql = "SELECT * FROM tb_questao";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            rs.last();
+            int ultimo = rs.getRow();
+            return ultimo;
+        
+        }catch(SQLException u){
+            throw new RuntimeException(u);
+        }
+    
+    
+    }
+    
     public Questao [] obterQuestoes () throws Exception {
         String sql = "SELECT * FROM tb_questao";
         try {
