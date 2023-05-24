@@ -8,6 +8,17 @@ public class Usuario {
     private String email;
     private String senha;
     private int pontuacao;
+    
+    public Usuario(){
+    
+    }
+    
+    public Usuario(int id, String nome, String email, int pontuacao){
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.pontuacao = pontuacao;
+    }
 
     public int getId() {
         return id;
@@ -48,6 +59,11 @@ public class Usuario {
     public void setPontuacao(int pontuacao) {
         this.pontuacao = pontuacao;
     }
+    
+    @Override
+     public String toString(){
+         return this.nome;
+     }
 
     
     

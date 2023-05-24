@@ -29,13 +29,39 @@ public class UsuarioDAO {
             ps.setString(2, usuario.getSenha());
             ps.setString(3,usuario.getEmail());
             ps.execute();
-            ps.close();
         } 
         catch (SQLException u) { 
             throw new RuntimeException(u);
         } 
     
     }
+    
+    public void removeUser(Usuario usuario){
+        String sql = "DELETE FROM tb_usuario WHERE id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, usuario.getId());
+            ps.execute();
+        }catch(SQLException u){
+            throw new RuntimeException(u);
+        }
+    }
+    
+    public void atualizaUser(Usuario usuario){
+        String sql = "UPDATE tb_usuario SET nome = ?, senha = ?, email = ? WHERE id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, usuario.getNome());
+            ps.setString(2, usuario.getSenha());
+            ps.setString(3, usuario.getEmail());
+            ps.setInt(4, usuario.getId());
+            ps.execute();
+        
+        }catch(SQLException u){
+            throw new RuntimeException(u);
+        }
+    }
+    
     public boolean existeUser(Usuario usuario) throws Exception{
         String sql = "SELECT * FROM tb_usuario WHERE nome = ? AND senha = ?";
         try {
@@ -100,5 +126,26 @@ public class UsuarioDAO {
        
     }
     
+    public Usuario [] obterUsuarios () throws Exception {
+        String sql = "SELECT * FROM tb_usuario";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = ps.executeQuery();
+            int totalUsuarios = rs.last() ? rs.getRow() : 0;
+            Usuario [] usuarios = new Usuario[totalUsuarios];
+            rs.beforeFirst();
+            int contador = 0;
+            while(rs.next()){
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                String email = rs.getString("email");
+                int pontuacao  = rs.getInt("pontuacao");
+                usuarios[contador++] = new Usuario(id, nome, email, pontuacao);
+            }
+            return usuarios;
+        }catch(SQLException u){
+            throw new RuntimeException(u);
+        }
+    }
 }  
 

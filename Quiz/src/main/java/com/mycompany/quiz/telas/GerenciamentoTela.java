@@ -44,7 +44,12 @@ public class GerenciamentoTela extends javax.swing.JFrame {
             }
         });
 
-        btn_usuarios.setText("Gerenciamento de usuários");
+        btn_usuarios.setText("Listagem de usuários");
+        btn_usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_usuariosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -52,9 +57,9 @@ public class GerenciamentoTela extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(41, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_usuarios)
-                    .addComponent(btn_questoes))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_questoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
@@ -114,6 +119,13 @@ public class GerenciamentoTela extends javax.swing.JFrame {
         qt.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_questoesActionPerformed
+
+    private void btn_usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuariosActionPerformed
+        // TODO add your handling code here:
+        UsuariosTela ut = new UsuariosTela();
+        ut.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_usuariosActionPerformed
 
     /**
      * @param args the command line arguments
