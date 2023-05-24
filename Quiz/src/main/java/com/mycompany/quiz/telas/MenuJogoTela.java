@@ -53,6 +53,11 @@ public class MenuJogoTela extends javax.swing.JFrame {
         });
 
         btn_conta.setText("Conta");
+        btn_conta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_contaActionPerformed(evt);
+            }
+        });
 
         btn_sair.setText("Sair");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +123,13 @@ public class MenuJogoTela extends javax.swing.JFrame {
             Logger.getLogger(MenuJogoTela.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_gerenciamentoActionPerformed
+
+    private void btn_contaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_contaActionPerformed
+        // TODO add your handling code here:
+        ContaTela ct = new ContaTela();
+        ct.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_contaActionPerformed
 
     /**
      * @param args the command line arguments

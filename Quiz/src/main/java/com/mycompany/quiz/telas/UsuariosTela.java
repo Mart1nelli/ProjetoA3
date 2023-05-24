@@ -63,13 +63,22 @@ public class UsuariosTela extends javax.swing.JFrame {
             }
         });
 
+        txf_id.setEditable(false);
         txf_id.setBorder(javax.swing.BorderFactory.createTitledBorder("Id"));
 
+        txf_nome.setEditable(false);
         txf_nome.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
 
+        txf_email.setEditable(false);
         txf_email.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
 
+        txf_pontuacao.setEditable(false);
         txf_pontuacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Pontuação"));
+        txf_pontuacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txf_pontuacaoActionPerformed(evt);
+            }
+        });
 
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +171,10 @@ public class UsuariosTela extends javax.swing.JFrame {
         gt.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void txf_pontuacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_pontuacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txf_pontuacaoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -8,13 +8,41 @@ package com.mycompany.quiz.telas;
  *
  * @author mathe
  */
+import com.mycompany.quiz.Sessao;
+import com.mycompany.quiz.Usuario;
+import com.mycompany.quiz.daos.UsuarioDAO;
+import javax.swing.JOptionPane;
+
 public class ContaTela extends javax.swing.JFrame {
 
     /**
      * Creates new form ContaTela
      */
     public ContaTela() {
+        super("Squizz");
         initComponents();
+        buscaUsuario();
+        setLocationRelativeTo(null);
+    }
+    
+    private void buscaUsuario(){
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario usuario = new Usuario();
+        Sessao sessao = Sessao.getInstance();
+        String nome = sessao.getNomeLogin();
+        try{
+            usuario.setNome(nome);
+            dao.setUserByNome(usuario);
+            txf_nome.setText(usuario.getNome());
+            txf_email.setText(usuario.getEmail());
+            txf_senha.setText(usuario.getSenha());
+            txf_pontuacao.setText(String.valueOf(usuario.getPontuacao()));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Tente novamente mais tarde");
+            e.printStackTrace();
+        }    
+        
+    
     }
 
     /**
@@ -26,21 +54,158 @@ public class ContaTela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        txf_nome = new javax.swing.JTextField();
+        txf_email = new javax.swing.JTextField();
+        txf_senha = new javax.swing.JTextField();
+        txf_pontuacao = new javax.swing.JTextField();
+        btn_atualizar = new javax.swing.JButton();
+        btn_excluir = new javax.swing.JButton();
+        btn_voltar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sua conta"));
+
+        txf_nome.setBorder(javax.swing.BorderFactory.createTitledBorder("Seu nome"));
+
+        txf_email.setBorder(javax.swing.BorderFactory.createTitledBorder("Seu email"));
+
+        txf_senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Sua senha"));
+
+        txf_pontuacao.setEditable(false);
+        txf_pontuacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Sua pontuação"));
+
+        btn_atualizar.setText("Atualizar");
+        btn_atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atualizarActionPerformed(evt);
+            }
+        });
+
+        btn_excluir.setText("Excluir");
+        btn_excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirActionPerformed(evt);
+            }
+        });
+
+        btn_voltar.setText("Voltar");
+        btn_voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_voltarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txf_nome)
+                    .addComponent(txf_email)
+                    .addComponent(txf_senha)
+                    .addComponent(txf_pontuacao)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_atualizar)
+                        .addGap(34, 34, 34)
+                        .addComponent(btn_excluir)
+                        .addGap(30, 30, 30)
+                        .addComponent(btn_voltar)
+                        .addGap(0, 100, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(txf_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txf_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txf_pontuacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_atualizar)
+                    .addComponent(btn_excluir)
+                    .addComponent(btn_voltar))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
+        // TODO add your handling code here:
+        MenuJogoTela mj = new MenuJogoTela();
+        mj.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
+        // TODO add your handling code here:
+        Sessao sessao = Sessao.getInstance();
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario usuario = new Usuario();
+        String nome = sessao.getNomeLogin();
+        try{
+            usuario.setNome(nome);
+            dao.setUserByNome(usuario);
+            usuario.setNome(txf_nome.getText());
+            usuario.setEmail(txf_email.getText());
+            usuario.setSenha(txf_senha.getText());
+            dao.atualizaUser(usuario);
+            JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso! Por favor logue de novo...");
+            MenuInicial mi = new MenuInicial();
+            mi.setVisible(true);
+            this.dispose();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Tente novamente mais tade");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btn_atualizarActionPerformed
+
+    private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        // TODO add your handling code here:
+        Sessao sessao = Sessao.getInstance();
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario usuario = new Usuario();
+        String nome = sessao.getNomeLogin();
+        try{
+            usuario.setNome(nome);
+            dao.setUserByNome(usuario);
+            dao.removeUser(usuario);
+            JOptionPane.showMessageDialog(null, "Conta excluída com sucesso!");
+            MenuInicial mi = new MenuInicial();
+            mi.setVisible(true);
+            this.dispose();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Tente novamente mais tarde");
+            e.printStackTrace();
+        
+        }
+    }//GEN-LAST:event_btn_excluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +243,13 @@ public class ContaTela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_atualizar;
+    private javax.swing.JButton btn_excluir;
+    private javax.swing.JButton btn_voltar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txf_email;
+    private javax.swing.JTextField txf_nome;
+    private javax.swing.JTextField txf_pontuacao;
+    private javax.swing.JTextField txf_senha;
     // End of variables declaration//GEN-END:variables
 }
