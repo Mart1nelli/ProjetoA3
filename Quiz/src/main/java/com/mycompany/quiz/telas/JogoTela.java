@@ -76,6 +76,7 @@ public class JogoTela extends javax.swing.JFrame {
                 alternativaCorreta = questoes[posicao].getAlternativaCorreta();
                 justificativa = questoes[posicao].getJustificativa();
                 lbl_pergunta.setText(pergunta);
+                lbl_numeroQuestao.setText(String.valueOf(numeroQuestao));
                 btn_alternativaA.setText(alternativaA);
                 btn_alternativaB.setText(alternativaB);
                 btn_alternativaC.setText(alternativaC);
@@ -108,6 +109,12 @@ public class JogoTela extends javax.swing.JFrame {
         btn_alternativaC = new javax.swing.JRadioButton();
         btn_alternativaD = new javax.swing.JRadioButton();
         lbl_pergunta = new javax.swing.JLabel();
+        lbl_numeroQuestao = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -152,37 +159,71 @@ public class JogoTela extends javax.swing.JFrame {
 
         lbl_pergunta.setText("Pergunta");
 
+        lbl_numeroQuestao.setText("N");
+
+        jLabel1.setText("A)");
+
+        jLabel2.setText("B)");
+
+        jLabel3.setText("C)");
+
+        jLabel4.setText("D)");
+
+        jLabel5.setText(")");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_pergunta)
-                    .addComponent(btn_alternativaD)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_numeroQuestao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_pergunta))
                     .addComponent(btn_alternativaC)
-                    .addComponent(btn_alternativaB)
                     .addComponent(btn_alternativaA)
+                    .addComponent(btn_alternativaB)
+                    .addComponent(btn_alternativaD)
                     .addComponent(btn_responder))
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addGap(107, 285, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(lbl_pergunta)
-                .addGap(52, 52, 52)
-                .addComponent(btn_alternativaA)
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_pergunta)
+                    .addComponent(lbl_numeroQuestao)
+                    .addComponent(jLabel5))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btn_alternativaA))
                 .addGap(18, 18, 18)
-                .addComponent(btn_alternativaB)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_alternativaB)
+                    .addComponent(jLabel2))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_alternativaC)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addComponent(btn_alternativaC)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_alternativaD)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addComponent(btn_alternativaD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(btn_responder)
-                .addGap(31, 31, 31))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -222,20 +263,27 @@ public class JogoTela extends javax.swing.JFrame {
                 if(escolha.equals(alternativaCorreta)){
                     JOptionPane.showMessageDialog(null, "Parabéns você acertou!");
                     dao.atualizaPontuacaoUser(usuario);
+                    if(numeroQuestao >= 5){
+                        JOptionPane.showMessageDialog(null, "Quiz completo! Sua pontução foi de: " + dao.getPontuacaoUser(usuario));
+                        MenuJogoTela mj = new MenuJogoTela();
+                        mj.setVisible(true);
+                        this.dispose();
+                    }
                     numeroQuestao++;
                     setQuestao();
                 }else{
                     JOptionPane.showMessageDialog(null, "Você errou... " + justificativa);
+                    if(numeroQuestao >= 5){
+                        JOptionPane.showMessageDialog(null, "Quiz completo! Sua pontução foi de: " + dao.getPontuacaoUser(usuario));
+                        MenuJogoTela mj = new MenuJogoTela();
+                        mj.setVisible(true);
+                        this.dispose();
+                    }
                     numeroQuestao++;
                     setQuestao();
                 }
             }
-            if(numeroQuestao >= 6){
-                JOptionPane.showMessageDialog(null, "Quiz completo! Sua pontução foi de: " + dao.getPontuacaoUser(usuario));
-                MenuJogoTela mj = new MenuJogoTela();
-                mj.setVisible(true);
-                this.dispose();
-            }
+            
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Problemas técnicos tente novamente mais tarde");
@@ -285,6 +333,12 @@ public class JogoTela extends javax.swing.JFrame {
     private javax.swing.JRadioButton btn_alternativaC;
     private javax.swing.JRadioButton btn_alternativaD;
     private javax.swing.JButton btn_responder;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lbl_numeroQuestao;
     private javax.swing.JLabel lbl_pergunta;
     // End of variables declaration//GEN-END:variables
 }
