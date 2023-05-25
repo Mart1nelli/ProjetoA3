@@ -118,7 +118,7 @@ public class CadastroTela extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Nome, email, ou senha inválidos");
             }else{
                 if(dao.existeNomeUser(usuarios)){
-                    JOptionPane.showMessageDialog(null, "Nome ja existênte");
+                    JOptionPane.showMessageDialog(null, "Usuario ja existênte");
                     txf_nome.setText("");
                 }
                 if(dao.existeEmailUser(usuarios)){

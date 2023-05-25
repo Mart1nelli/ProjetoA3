@@ -18,6 +18,7 @@ public class ContaTela extends javax.swing.JFrame {
     /**
      * Creates new form ContaTela
      */
+    
     public ContaTela() {
         super("Squizz");
         initComponents();
@@ -168,18 +169,90 @@ public class ContaTela extends javax.swing.JFrame {
         Sessao sessao = Sessao.getInstance();
         UsuarioDAO dao = new UsuarioDAO();
         Usuario usuario = new Usuario();
-        String nome = sessao.getNomeLogin();
         try{
-            usuario.setNome(nome);
+            usuario.setNome(sessao.getNomeLogin());
             dao.setUserByNome(usuario);
-            usuario.setNome(txf_nome.getText());
-            usuario.setEmail(txf_email.getText());
-            usuario.setSenha(txf_senha.getText());
-            dao.atualizaUser(usuario);
-            JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso! Por favor logue de novo...");
-            MenuInicial mi = new MenuInicial();
-            mi.setVisible(true);
-            this.dispose();
+            String nomeAntigo = usuario.getNome();
+            String emailAntigo = usuario.getEmail();
+            String nome = txf_nome.getText();
+            String email = txf_email.getText();
+            String senha = txf_senha.getText();
+            usuario.setNome(nome);
+            usuario.setEmail(email);
+            usuario.setSenha(senha);
+            if(nome.equals("") && email.equals("") && senha.equals("")){
+                JOptionPane.showMessageDialog(null, "Por favor digite algo nos campos");
+            }else{
+                if(dao.existeNomeUser(usuario) && dao.existeEmailUser(usuario)){
+                    if(nome.equals(nomeAntigo) && email.equals(emailAntigo)){
+                        dao.atualizaUser(usuario);
+                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
+                        MenuInicial mi = new MenuInicial();
+                        mi.setVisible(true);
+                        this.dispose();
+                    }
+                    if(!nome.equals(nomeAntigo) && email.equals("administrador@squizz.com")){
+                        JOptionPane.showMessageDialog(null, "Nome ja existente.");
+                        txf_nome.setText(nomeAntigo);
+                    }
+                    if(!nome.equals(nomeAntigo) && !email.equals("administrador@squizz.com")){
+                        JOptionPane.showMessageDialog(null, "Nome e email ja existentes.");
+                        txf_nome.setText(nomeAntigo);
+                        txf_email.setText(emailAntigo);
+                    }
+                    if(nome.equals(nomeAntigo) && email.equals("administrador@squizz.com")){
+                        dao.atualizaUser(usuario);
+                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
+                        MenuInicial mi = new MenuInicial();
+                        mi.setVisible(true);
+                        this.dispose();
+                    }
+                }
+                if(dao.existeNomeUser(usuario) && !dao.existeEmailUser(usuario)){
+                    if(nome.equals(nomeAntigo)){
+                        dao.atualizaUser(usuario);
+                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
+                        MenuInicial mi = new MenuInicial();
+                        mi.setVisible(true);
+                        this.dispose();
+                    }
+                    if(!nome.equals(nomeAntigo)){
+                        JOptionPane.showMessageDialog(null, "Nome ja existente");
+                        txf_nome.setText(nomeAntigo);
+                    }
+                }
+                if(!dao.existeNomeUser(usuario) && dao.existeEmailUser(usuario)){
+                    if(email.equals(emailAntigo)){
+                        dao.atualizaUser(usuario);
+                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso!");
+                        MenuInicial mi = new MenuInicial();
+                        mi.setVisible(true);
+                        this.dispose();
+                    }
+                    if(email.equals("administrador@squizz.com")){
+                        dao.atualizaUser(usuario);
+                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
+                        MenuInicial mi = new MenuInicial();
+                        mi.setVisible(true);
+                        this.dispose();
+                    }
+                    if(!email.equals(emailAntigo) && !email.equals("administrador@squizz.com")){
+                        JOptionPane.showMessageDialog(null, "email ja existente");
+                        txf_email.setText(emailAntigo);
+                    }
+                
+                }
+                if(!dao.existeNomeUser(usuario) && !dao.existeEmailUser(usuario)){
+                    dao.atualizaUser(usuario);
+                    JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
+                    MenuInicial mi = new MenuInicial();
+                    mi.setVisible(true);
+                    this.dispose();
+                
+                }
+            
+            
+            }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Tente novamente mais tade");
             e.printStackTrace();

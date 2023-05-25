@@ -258,6 +258,7 @@ public class JogoTela extends javax.swing.JFrame {
             String nome = sessao.getNomeLogin();
             usuario.setNome(nome);
             dao.setUserByNome(usuario);
+            btnGroup.clearSelection();
         
             if(numeroQuestao <= 5){
                 if(escolha.equals(alternativaCorreta)){
