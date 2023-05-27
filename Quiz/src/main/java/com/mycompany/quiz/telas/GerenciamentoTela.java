@@ -31,6 +31,7 @@ public class GerenciamentoTela extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btn_questoes = new javax.swing.JButton();
         btn_usuarios = new javax.swing.JButton();
+        btn_noticias = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,15 +52,24 @@ public class GerenciamentoTela extends javax.swing.JFrame {
             }
         });
 
+        btn_noticias.setText("Gerenciamento de noticias");
+        btn_noticias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_noticiasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_questoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_noticias)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btn_questoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_usuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
@@ -69,7 +79,9 @@ public class GerenciamentoTela extends javax.swing.JFrame {
                 .addComponent(btn_questoes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_noticias)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btn_voltar.setText("Voltar");
@@ -100,7 +112,7 @@ public class GerenciamentoTela extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_voltar)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,6 +138,13 @@ public class GerenciamentoTela extends javax.swing.JFrame {
         ut.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_usuariosActionPerformed
+
+    private void btn_noticiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_noticiasActionPerformed
+        // TODO add your handling code here:
+        GerenciamentoNoticiasTela gn = new GerenciamentoNoticiasTela();
+        gn.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_noticiasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,6 +182,7 @@ public class GerenciamentoTela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_noticias;
     private javax.swing.JButton btn_questoes;
     private javax.swing.JButton btn_usuarios;
     private javax.swing.JButton btn_voltar;

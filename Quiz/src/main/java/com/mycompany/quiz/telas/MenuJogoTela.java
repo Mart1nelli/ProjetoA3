@@ -40,6 +40,7 @@ public class MenuJogoTela extends javax.swing.JFrame {
         btn_gerenciamento = new javax.swing.JButton();
         btn_conta = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
+        btn_noticia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,31 +72,45 @@ public class MenuJogoTela extends javax.swing.JFrame {
             }
         });
 
+        btn_noticia.setText("Noticias");
+        btn_noticia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_noticiaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
+                .addGap(25, 25, 25)
+                .addComponent(btn_noticia)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_jogar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_gerenciamento, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                     .addComponent(btn_conta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(btn_jogar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_conta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_conta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(btn_noticia)))
                 .addGap(18, 18, 18)
                 .addComponent(btn_gerenciamento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,7 +135,7 @@ public class MenuJogoTela extends javax.swing.JFrame {
                 gt.setVisible(true);
                 this.dispose();
             }else{
-                JOptionPane.showMessageDialog(null, "Você não tem acesso :(");
+                JOptionPane.showMessageDialog(null, "Você não tem acesso...");
             }
         }catch(SQLException u){
             throw new RuntimeException(u);
@@ -138,12 +153,19 @@ public class MenuJogoTela extends javax.swing.JFrame {
 
     private void btn_jogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jogarActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null , "Serão cinco perguntas relacionadas"
-                + " a agua e suas blablablabla");
+        JOptionPane.showMessageDialog(null , "Bem-vindo ao Quiz sobre Conscientização de Água! Prepare-se para testar seus conhecimentos e aprender sobre a importância\n da preservação desse recurso vital. Você explorará temas como a relevância da água para a saúde e o meio ambiente,\n"
+                + " bem como práticas de uso consciente e sustentável. Lembre-se de que a água é um recurso limitado e essencial para a vida.\n Ao aumentarmos nossa consciência e adotarmos atitudes responsáveis, podemos contribuir para sua preservação. Divirta-se e boa sorte!");
         JogoTela jt = new JogoTela();
         jt.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_jogarActionPerformed
+
+    private void btn_noticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_noticiaActionPerformed
+        // TODO add your handling code here:
+        NoticiasTela nt = new NoticiasTela();
+        nt.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_noticiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,6 +206,7 @@ public class MenuJogoTela extends javax.swing.JFrame {
     private javax.swing.JButton btn_conta;
     private javax.swing.JButton btn_gerenciamento;
     private javax.swing.JButton btn_jogar;
+    private javax.swing.JButton btn_noticia;
     private javax.swing.JButton btn_sair;
     // End of variables declaration//GEN-END:variables
 }

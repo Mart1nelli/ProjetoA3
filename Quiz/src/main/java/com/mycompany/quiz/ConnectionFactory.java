@@ -13,7 +13,7 @@ import java.sql.DriverManager;
 
 public class ConnectionFactory {
     private String usuario = "root";
-    private String senha = "prina71";
+    private String senha = "anima123";
     private String host = "localhost";
     private String porta = "3306";
     private String bd = "db_quiz";

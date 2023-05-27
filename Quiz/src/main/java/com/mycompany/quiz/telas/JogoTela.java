@@ -21,6 +21,7 @@ public class JogoTela extends javax.swing.JFrame {
     /**
      * Creates new form JogoTela
      */
+    
     private String pergunta;
     private String alternativaA;
     private String alternativaB;
