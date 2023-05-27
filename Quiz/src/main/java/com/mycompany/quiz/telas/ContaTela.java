@@ -180,78 +180,38 @@ public class ContaTela extends javax.swing.JFrame {
             usuario.setNome(nome);
             usuario.setEmail(email);
             usuario.setSenha(senha);
+            boolean alterouNome = !nome.equals(nomeAntigo);
+            boolean alterouEmail = !email.equals(emailAntigo);
             if(nome.equals("") || email.equals("") || senha.equals("")){
                 JOptionPane.showMessageDialog(null, "Por favor digite algo nos campos");
             }else{
-                if(dao.existeNomeUser(usuario) && dao.existeEmailUser(usuario)){
-                    if(nome.equals(nomeAntigo) && email.equals(emailAntigo)){
+                if (alterouNome && dao.existeNomeUser(usuario)) {
+                    JOptionPane.showMessageDialog(null, "Nome já existente. Por favor, escolha outro nome.");
+                    txf_nome.setText(nomeAntigo);
+                } else if (alterouEmail && dao.existeEmailUser(usuario)) {
+                    if (email.equals("administrador@squizz.com")) {
                         dao.atualizaUser(usuario);
-                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
+                        JOptionPane.showMessageDialog(null, "Cadastro de Administrador atualizado!");
                         MenuInicial mi = new MenuInicial();
                         mi.setVisible(true);
                         this.dispose();
-                    }
-                    if(!nome.equals(nomeAntigo) && email.equals("administrador@squizz.com")){
-                        JOptionPane.showMessageDialog(null, "Nome ja existente.");
-                        txf_nome.setText(nomeAntigo);
-                    }
-                    if(!nome.equals(nomeAntigo) && !email.equals("administrador@squizz.com")){
-                        JOptionPane.showMessageDialog(null, "Nome e email ja existentes.");
-                        txf_nome.setText(nomeAntigo);
+                        
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Email já existente");
                         txf_email.setText(emailAntigo);
                     }
-                    if(nome.equals(nomeAntigo) && email.equals("administrador@squizz.com")){
+                } else {
+                    if (email.equals("administrador@squizz.com")) {
                         dao.atualizaUser(usuario);
-                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso! Agora sua conta é de administrador");
-                        MenuInicial mi = new MenuInicial();
-                        mi.setVisible(true);
-                        this.dispose();
-                    }
-                }
-                if(dao.existeNomeUser(usuario) && !dao.existeEmailUser(usuario)){
-                    if(nome.equals(nomeAntigo)){
-                        dao.atualizaUser(usuario);
-                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
-                        MenuInicial mi = new MenuInicial();
-                        mi.setVisible(true);
-                        this.dispose();
-                    }
-                    if(!nome.equals(nomeAntigo)){
-                        JOptionPane.showMessageDialog(null, "Nome ja existente");
-                        txf_nome.setText(nomeAntigo);
-                    }
-                }
-                if(!dao.existeNomeUser(usuario) && dao.existeEmailUser(usuario)){
-                    if(email.equals(emailAntigo)){
+                        JOptionPane.showMessageDialog(null, "Cadastro de Administrador atualizado!");
+                    } else {
                         dao.atualizaUser(usuario);
                         JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso!");
-                        MenuInicial mi = new MenuInicial();
-                        mi.setVisible(true);
-                        this.dispose();
                     }
-                    if(email.equals("administrador@squizz.com")){
-                        dao.atualizaUser(usuario);
-                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso! Agora sua conta é de administrador");
-                        MenuInicial mi = new MenuInicial();
-                        mi.setVisible(true);
-                        this.dispose();
-                    }
-                    if(!email.equals(emailAntigo) && !email.equals("administrador@squizz.com")){
-                        JOptionPane.showMessageDialog(null, "email ja existente");
-                        txf_email.setText(emailAntigo);
-                    }
-                
-                }
-                if(!dao.existeNomeUser(usuario) && !dao.existeEmailUser(usuario)){
-                    dao.atualizaUser(usuario);
-                    JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
                     MenuInicial mi = new MenuInicial();
                     mi.setVisible(true);
                     this.dispose();
-                
-                }
-            
-            
+                 }
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Tente novamente mais tade");
