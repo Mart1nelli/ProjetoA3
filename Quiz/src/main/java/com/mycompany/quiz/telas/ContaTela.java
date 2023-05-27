@@ -180,7 +180,7 @@ public class ContaTela extends javax.swing.JFrame {
             usuario.setNome(nome);
             usuario.setEmail(email);
             usuario.setSenha(senha);
-            if(nome.equals("") && email.equals("") && senha.equals("")){
+            if(nome.equals("") || email.equals("") || senha.equals("")){
                 JOptionPane.showMessageDialog(null, "Por favor digite algo nos campos");
             }else{
                 if(dao.existeNomeUser(usuario) && dao.existeEmailUser(usuario)){
@@ -202,7 +202,7 @@ public class ContaTela extends javax.swing.JFrame {
                     }
                     if(nome.equals(nomeAntigo) && email.equals("administrador@squizz.com")){
                         dao.atualizaUser(usuario);
-                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
+                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso! Agora sua conta é de administrador");
                         MenuInicial mi = new MenuInicial();
                         mi.setVisible(true);
                         this.dispose();
@@ -231,7 +231,7 @@ public class ContaTela extends javax.swing.JFrame {
                     }
                     if(email.equals("administrador@squizz.com")){
                         dao.atualizaUser(usuario);
-                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso");
+                        JOptionPane.showMessageDialog(null, "Cadastro atualizado com sucesso! Agora sua conta é de administrador");
                         MenuInicial mi = new MenuInicial();
                         mi.setVisible(true);
                         this.dispose();

@@ -69,7 +69,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btn_limpar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,17 +90,29 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txf_titulo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adicione um Titulo"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Titulo"/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txf_resumo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adicione um resumo"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Resumo"/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txf_url">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adicione a url"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Url"/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn_novo">

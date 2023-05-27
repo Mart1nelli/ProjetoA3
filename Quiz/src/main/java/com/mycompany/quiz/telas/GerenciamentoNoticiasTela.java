@@ -65,11 +65,11 @@ public class GerenciamentoNoticiasTela extends javax.swing.JFrame {
             }
         });
 
-        txf_titulo.setText("Adicione um Titulo");
+        txf_titulo.setBorder(javax.swing.BorderFactory.createTitledBorder("Titulo"));
 
-        txf_resumo.setText("Adicione um resumo");
+        txf_resumo.setBorder(javax.swing.BorderFactory.createTitledBorder("Resumo"));
 
-        txf_url.setText("Adicione a url");
+        txf_url.setBorder(javax.swing.BorderFactory.createTitledBorder("Url"));
 
         btn_novo.setText("Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +150,7 @@ public class GerenciamentoNoticiasTela extends javax.swing.JFrame {
                     .addComponent(btn_voltar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_limpar)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

@@ -68,7 +68,7 @@ public class JogoTela extends javax.swing.JFrame {
             Random gerador = new Random();
             int totalQuestoes = dao.getTotalQuestoes();
             posicao = gerador.nextInt(totalQuestoes);
-            if(posicao != posicoes[0] && posicao != posicoes[1] && posicao != posicoes[2] && posicao != posicoes[3] && posicao != posicoes[4]){
+            if(posicao != posicoes[0] && posicao != posicoes[1] && posicao != posicoes[2] && posicao != posicoes[3]){
                 pergunta = questoes[posicao].getPergunta();
                 alternativaA = questoes[posicao].getAlternativaA();
                 alternativaB = questoes[posicao].getAlternativaB();

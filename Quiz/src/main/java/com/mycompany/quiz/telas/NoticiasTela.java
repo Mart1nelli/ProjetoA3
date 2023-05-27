@@ -48,10 +48,10 @@ public class NoticiasTela extends javax.swing.JFrame {
     private void initComponents() {
 
         noticiasComboBox = new javax.swing.JComboBox<>();
-        lbl_titulo = new javax.swing.JLabel();
-        lbl_resumo = new javax.swing.JLabel();
-        lbl_url = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JButton();
+        txf_titulo = new javax.swing.JTextField();
+        txf_resumo = new javax.swing.JTextField();
+        txf_url = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,18 +61,21 @@ public class NoticiasTela extends javax.swing.JFrame {
             }
         });
 
-        lbl_titulo.setText("Titulo");
-
-        lbl_resumo.setText("Resumo");
-
-        lbl_url.setText("url");
-
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_voltarActionPerformed(evt);
             }
         });
+
+        txf_titulo.setEditable(false);
+        txf_titulo.setBorder(javax.swing.BorderFactory.createTitledBorder("Titulo"));
+
+        txf_resumo.setEditable(false);
+        txf_resumo.setBorder(javax.swing.BorderFactory.createTitledBorder("Resumo"));
+
+        txf_url.setEditable(false);
+        txf_url.setBorder(javax.swing.BorderFactory.createTitledBorder("Url"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,13 +84,13 @@ public class NoticiasTela extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_resumo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(noticiasComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(noticiasComboBox, 0, 380, Short.MAX_VALUE)
+                    .addComponent(txf_titulo)
+                    .addComponent(txf_resumo)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_voltar)
-                        .addGap(0, 319, Short.MAX_VALUE))
-                    .addComponent(lbl_url, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txf_url))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -96,14 +99,14 @@ public class NoticiasTela extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(noticiasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(lbl_titulo)
+                .addComponent(txf_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(txf_resumo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lbl_resumo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_url)
-                .addGap(33, 33, 33)
+                .addComponent(txf_url, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(btn_voltar)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -119,9 +122,9 @@ public class NoticiasTela extends javax.swing.JFrame {
             String resumo = noticias[posicao].getResumo();
             String url = noticias[posicao].getUrl();
             
-            lbl_titulo.setText(titulo);
-            lbl_resumo.setText(resumo);
-            lbl_url.setText(url);
+            txf_titulo.setText(titulo);
+            txf_resumo.setText(resumo);
+            txf_url.setText(url);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Tente mais tarde");
             e.printStackTrace();
@@ -172,9 +175,9 @@ public class NoticiasTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_voltar;
-    private javax.swing.JLabel lbl_resumo;
-    private javax.swing.JLabel lbl_titulo;
-    private javax.swing.JLabel lbl_url;
     private javax.swing.JComboBox<Noticia> noticiasComboBox;
+    private javax.swing.JTextField txf_resumo;
+    private javax.swing.JTextField txf_titulo;
+    private javax.swing.JTextField txf_url;
     // End of variables declaration//GEN-END:variables
 }
