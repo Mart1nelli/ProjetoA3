@@ -1,4 +1,4 @@
-package com.mycompany.quiz;
+package com.mycompany.quiz.models;
 
 public class Questao {
     private int id;

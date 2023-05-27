@@ -8,8 +8,8 @@ package com.mycompany.quiz.daos;
  *
  * @author mathe
  */
-import com.mycompany.quiz.ConnectionFactory;
-import com.mycompany.quiz.Questao;
+import com.mycompany.quiz.models.ConnectionFactory;
+import com.mycompany.quiz.models.Questao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;

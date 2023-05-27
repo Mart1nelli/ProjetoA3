@@ -9,8 +9,8 @@ package com.mycompany.quiz.daos;
  *
  * @author 823159187
  */
-import com.mycompany.quiz.ConnectionFactory;
-import com.mycompany.quiz.Noticia;
+import com.mycompany.quiz.models.ConnectionFactory;
+import com.mycompany.quiz.models.Noticia;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;

@@ -9,9 +9,9 @@ package com.mycompany.quiz.telas;
  * @author mathe
  */
 import com.mycompany.quiz.daos.QuestaoDAO;
-import com.mycompany.quiz.Questao;
-import com.mycompany.quiz.Sessao;
-import com.mycompany.quiz.Usuario;
+import com.mycompany.quiz.models.Questao;
+import com.mycompany.quiz.models.Sessao;
+import com.mycompany.quiz.models.Usuario;
 import com.mycompany.quiz.daos.UsuarioDAO;
 import javax.swing.JOptionPane;
 import java.util.Random;
@@ -32,7 +32,7 @@ public class JogoTela extends javax.swing.JFrame {
     private String escolha;
     private int cont = 0;
     private int posicao;
-    private int[] posicoes = new int[6];
+    private int[] posicoes = new int[10];
     private int numeroQuestao = 1;
     
     public JogoTela() {
@@ -253,40 +253,43 @@ public class JogoTela extends javax.swing.JFrame {
     private void btn_responderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_responderActionPerformed
         // TODO add your handling code here:
         try {
-            Sessao sessao = Sessao.getInstance();
-            Usuario usuario = new Usuario();
-            UsuarioDAO dao = new UsuarioDAO();
-            String nome = sessao.getNomeLogin();
-            usuario.setNome(nome);
-            dao.setUserByNome(usuario);
-            btnGroup.clearSelection();
+            if(!btn_alternativaA.isSelected() && !btn_alternativaB.isSelected() && !btn_alternativaC.isSelected() && !btn_alternativaD.isSelected()){
+                JOptionPane.showMessageDialog(null, "Por favor escolha uma alternativa");
+            }else{
+                Sessao sessao = Sessao.getInstance();
+                Usuario usuario = new Usuario();
+                UsuarioDAO dao = new UsuarioDAO();
+                String nome = sessao.getNomeLogin();
+                usuario.setNome(nome);
+                dao.setUserByNome(usuario);
+                btnGroup.clearSelection();
         
-            if(numeroQuestao <= 5){
-                if(escolha.equals(alternativaCorreta)){
-                    JOptionPane.showMessageDialog(null, "Parabéns você acertou!");
-                    dao.atualizaPontuacaoUser(usuario);
-                    if(numeroQuestao >= 5){
-                        JOptionPane.showMessageDialog(null, "Quiz completo! Sua pontução foi de: " + dao.getPontuacaoUser(usuario));
-                        MenuJogoTela mj = new MenuJogoTela();
-                        mj.setVisible(true);
-                        this.dispose();
+                if(numeroQuestao <= 5){
+                    if(escolha.equals(alternativaCorreta)){
+                        JOptionPane.showMessageDialog(null, "Parabéns você acertou!");
+                        dao.atualizaPontuacaoUser(usuario);
+                        if(numeroQuestao >= 5){
+                            JOptionPane.showMessageDialog(null, "Quiz completo! Sua pontução foi de: " + dao.getPontuacaoUser(usuario));
+                            MenuJogoTela mj = new MenuJogoTela();
+                            mj.setVisible(true);
+                            this.dispose();
+                        }
+                        numeroQuestao++;
+                        setQuestao();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Você errou... " + justificativa);
+                        if(numeroQuestao >= 5){
+                            JOptionPane.showMessageDialog(null, "Quiz completo! Sua pontução foi de: " + dao.getPontuacaoUser(usuario));
+                            MenuJogoTela mj = new MenuJogoTela();
+                            mj.setVisible(true);
+                            this.dispose();
+                        }
+                        numeroQuestao++;
+                        setQuestao();
                     }
-                    numeroQuestao++;
-                    setQuestao();
-                }else{
-                    JOptionPane.showMessageDialog(null, "Você errou... " + justificativa);
-                    if(numeroQuestao >= 5){
-                        JOptionPane.showMessageDialog(null, "Quiz completo! Sua pontução foi de: " + dao.getPontuacaoUser(usuario));
-                        MenuJogoTela mj = new MenuJogoTela();
-                        mj.setVisible(true);
-                        this.dispose();
-                    }
-                    numeroQuestao++;
-                    setQuestao();
                 }
-            }
             
-            
+            } 
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Problemas técnicos tente novamente mais tarde");
             e.printStackTrace();

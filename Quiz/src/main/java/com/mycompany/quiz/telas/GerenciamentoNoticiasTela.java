@@ -9,7 +9,7 @@ package com.mycompany.quiz.telas;
  *
  * @author 823159187
  */
-import com.mycompany.quiz.Noticia;
+import com.mycompany.quiz.models.Noticia;
 import com.mycompany.quiz.daos.NoticiaDAO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;

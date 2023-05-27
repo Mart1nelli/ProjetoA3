@@ -8,8 +8,8 @@ package com.mycompany.quiz.telas;
  *
  * @author mathe
  */
-import com.mycompany.quiz.Sessao;
-import com.mycompany.quiz.Usuario;
+import com.mycompany.quiz.models.Sessao;
+import com.mycompany.quiz.models.Usuario;
 import com.mycompany.quiz.daos.UsuarioDAO;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -153,7 +153,7 @@ public class MenuJogoTela extends javax.swing.JFrame {
 
     private void btn_jogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jogarActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null , "Bem-vindo ao Quiz sobre Conscientização de Água! Prepare-se para testar seus conhecimentos e aprender sobre a importância\n da preservação desse recurso vital. Você explorará temas como a relevância da água para a saúde e o meio ambiente,\n"
+        JOptionPane.showMessageDialog(null , "Bem-vindo ao Quiz sobre Conscientização de Água! Será um quiz com cinco perguntas que irão testar seus conhecimentos e te ensinará sobre a importância\n da preservação desse recurso vital. Você explorará temas como a relevância da água para a saúde e o meio ambiente,\n"
                 + " bem como práticas de uso consciente e sustentável. Lembre-se de que a água é um recurso limitado e essencial para a vida.\n Ao aumentarmos nossa consciência e adotarmos atitudes responsáveis, podemos contribuir para sua preservação. Divirta-se e boa sorte!");
         JogoTela jt = new JogoTela();
         jt.setVisible(true);

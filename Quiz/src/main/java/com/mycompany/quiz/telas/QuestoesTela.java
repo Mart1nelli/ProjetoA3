@@ -8,7 +8,7 @@ package com.mycompany.quiz.telas;
  *
  * @author mathe
  */
-import com.mycompany.quiz.Questao;
+import com.mycompany.quiz.models.Questao;
 import com.mycompany.quiz.daos.QuestaoDAO;
 import javax.swing.JOptionPane;
 import javax.swing.DefaultComboBoxModel;

@@ -8,8 +8,8 @@ package com.mycompany.quiz.telas;
  *
  * @author mathe
  */
-import com.mycompany.quiz.Sessao;
-import com.mycompany.quiz.Usuario;
+import com.mycompany.quiz.models.Sessao;
+import com.mycompany.quiz.models.Usuario;
 import com.mycompany.quiz.daos.UsuarioDAO;
 import javax.swing.JOptionPane;
 
