@@ -153,10 +153,8 @@ public class MenuJogoTela extends javax.swing.JFrame {
 
     private void btn_jogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jogarActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null , "Bem-vindo ao Quiz sobre Conscientização de Água! Será um quiz com cinco perguntas que irão testar seus conhecimentos e te ensinará sobre a importância\n da preservação desse recurso vital. Você explorará temas como a relevância da água para a saúde e o meio ambiente,\n"
-                + " bem como práticas de uso consciente e sustentável. Lembre-se de que a água é um recurso limitado e essencial para a vida.\n Ao aumentarmos nossa consciência e adotarmos atitudes responsáveis, podemos contribuir para sua preservação. Divirta-se e boa sorte!");
-        JogoTela jt = new JogoTela();
-        jt.setVisible(true);
+        MenssagemTela mt = new MenssagemTela();
+        mt.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_jogarActionPerformed
 

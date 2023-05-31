@@ -88,7 +88,10 @@ public class JogoTela extends javax.swing.JFrame {
                 setQuestao();
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Problemas técnicos");
+            JOptionPane.showMessageDialog(null, "Problemas técnicos, estão faltando questões no banco de dados");
+            MenuJogoTela mj = new MenuJogoTela();
+            mj.setVisible(true);
+            this.dispose();
             e.printStackTrace();
         }
     
@@ -186,17 +189,21 @@ public class JogoTela extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_numeroQuestao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_pergunta))
-                    .addComponent(btn_alternativaC)
-                    .addComponent(btn_alternativaA)
-                    .addComponent(btn_alternativaB)
-                    .addComponent(btn_alternativaD)
-                    .addComponent(btn_responder))
-                .addGap(107, 285, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_numeroQuestao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_pergunta))
+                            .addComponent(btn_alternativaC)
+                            .addComponent(btn_alternativaA)
+                            .addComponent(btn_alternativaB)
+                            .addComponent(btn_alternativaD))
+                        .addGap(107, 285, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_responder)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

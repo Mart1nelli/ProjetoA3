@@ -37,20 +37,27 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="lbl_numeroQuestao" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbl_pergunta" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lbl_numeroQuestao" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbl_pergunta" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btn_alternativaC" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_alternativaA" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_alternativaB" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_alternativaD" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="107" pref="285" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="btn_alternativaC" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_alternativaA" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_alternativaB" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_alternativaD" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_responder" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btn_responder" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="107" pref="285" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
