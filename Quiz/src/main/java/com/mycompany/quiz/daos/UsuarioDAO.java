@@ -13,7 +13,7 @@ import com.mycompany.quiz.models.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
-import java.sql.*;
+import java.sql.SQLException;
 
 public class UsuarioDAO {
   private Connection connection;

@@ -14,7 +14,7 @@ import com.mycompany.quiz.models.Noticia;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
-import java.sql.*;
+import java.sql.SQLException;
 
 public class NoticiaDAO {
     private Connection connection;
