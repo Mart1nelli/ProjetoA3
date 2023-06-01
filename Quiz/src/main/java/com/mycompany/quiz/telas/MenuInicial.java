@@ -36,13 +36,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         jLabel1.setText("Squizz");
 
-        btn_sair.setBackground(new java.awt.Color(51, 0, 204));
-        btn_sair.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        btn_sair.setBackground(new java.awt.Color(255, 0, 51));
+        btn_sair.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
         btn_sair.setForeground(new java.awt.Color(255, 255, 255));
         btn_sair.setText("Sair");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +52,7 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         btn_login.setBackground(new java.awt.Color(51, 0, 204));
-        btn_login.setFont(new java.awt.Font("Tw Cen MT", 0, 12)); // NOI18N
+        btn_login.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
         btn_login.setForeground(new java.awt.Color(255, 255, 255));
         btn_login.setText("Login");
         btn_login.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +61,8 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
 
-        btn_cadastro.setBackground(new java.awt.Color(0, 51, 153));
+        btn_cadastro.setBackground(new java.awt.Color(51, 0, 204));
+        btn_cadastro.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
         btn_cadastro.setForeground(new java.awt.Color(255, 255, 255));
         btn_cadastro.setText("Cadastro");
         btn_cadastro.addActionListener(new java.awt.event.ActionListener() {
