@@ -32,6 +32,7 @@ public class CadastroTela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         txf_nome = new javax.swing.JTextField();
         txf_email = new javax.swing.JTextField();
         pwf_senha = new javax.swing.JPasswordField();
@@ -40,12 +41,23 @@ public class CadastroTela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txf_nome.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite seu nome"));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
-        txf_email.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite seu email"));
+        txf_nome.setBackground(new java.awt.Color(51, 51, 51));
+        txf_nome.setForeground(new java.awt.Color(255, 255, 255));
+        txf_nome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite seu nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        pwf_senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite sua senha"));
+        txf_email.setBackground(new java.awt.Color(51, 51, 51));
+        txf_email.setForeground(new java.awt.Color(255, 255, 255));
+        txf_email.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite seu email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        pwf_senha.setBackground(new java.awt.Color(51, 51, 51));
+        pwf_senha.setForeground(new java.awt.Color(255, 255, 255));
+        pwf_senha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite sua senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        btn_menu.setBackground(new java.awt.Color(51, 0, 204));
+        btn_menu.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_menu.setForeground(new java.awt.Color(255, 255, 255));
         btn_menu.setText("Voltar ao Menu");
         btn_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +65,9 @@ public class CadastroTela extends javax.swing.JFrame {
             }
         });
 
+        btn_criaCadastro.setBackground(new java.awt.Color(51, 0, 204));
+        btn_criaCadastro.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_criaCadastro.setForeground(new java.awt.Color(255, 255, 255));
         btn_criaCadastro.setText("Criar Cadastro");
         btn_criaCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,36 +75,47 @@ public class CadastroTela extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_menu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_criaCadastro))
-                    .addComponent(txf_nome)
-                    .addComponent(txf_email)
-                    .addComponent(pwf_senha))
-                .addContainerGap(48, Short.MAX_VALUE))
+                    .addComponent(pwf_senha, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txf_email, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txf_nome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE))
+                .addGap(62, 62, 62))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addComponent(txf_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pwf_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_menu)
-                    .addComponent(btn_criaCadastro))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_criaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -191,6 +217,7 @@ public class CadastroTela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_criaCadastro;
     private javax.swing.JButton btn_menu;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField pwf_senha;
     private javax.swing.JTextField txf_email;
     private javax.swing.JTextField txf_nome;

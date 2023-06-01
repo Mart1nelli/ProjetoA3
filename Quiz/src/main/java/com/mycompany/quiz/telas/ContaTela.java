@@ -66,7 +66,8 @@ public class ContaTela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sua conta"));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sua conta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 0, 12))); // NOI18N
 
         txf_nome.setBorder(javax.swing.BorderFactory.createTitledBorder("Seu nome"));
 
@@ -77,13 +78,20 @@ public class ContaTela extends javax.swing.JFrame {
         txf_pontuacao.setEditable(false);
         txf_pontuacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Sua pontuação"));
 
+        btn_atualizar.setBackground(new java.awt.Color(51, 0, 204));
+        btn_atualizar.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_atualizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_atualizar.setText("Atualizar");
+        btn_atualizar.setPreferredSize(new java.awt.Dimension(77, 28));
         btn_atualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_atualizarActionPerformed(evt);
             }
         });
 
+        btn_excluir.setBackground(new java.awt.Color(51, 0, 204));
+        btn_excluir.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_excluir.setForeground(new java.awt.Color(255, 255, 255));
         btn_excluir.setText("Excluir");
         btn_excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +99,9 @@ public class ContaTela extends javax.swing.JFrame {
             }
         });
 
+        btn_voltar.setBackground(new java.awt.Color(255, 0, 51));
+        btn_voltar.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_voltar.setForeground(new java.awt.Color(255, 255, 255));
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,13 +121,16 @@ public class ContaTela extends javax.swing.JFrame {
                     .addComponent(txf_senha)
                     .addComponent(txf_pontuacao)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_atualizar)
-                        .addGap(34, 34, 34)
-                        .addComponent(btn_excluir)
-                        .addGap(30, 30, 30)
-                        .addComponent(btn_voltar)
-                        .addGap(0, 100, Short.MAX_VALUE)))
+                        .addGap(94, 94, 94)
+                        .addComponent(btn_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_voltar)
+                .addGap(166, 166, 166))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,27 +145,22 @@ public class ContaTela extends javax.swing.JFrame {
                 .addComponent(txf_pontuacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_atualizar)
-                    .addComponent(btn_excluir)
-                    .addComponent(btn_voltar))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(btn_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
