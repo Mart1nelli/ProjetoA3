@@ -50,13 +50,14 @@ public class GerenciamentoNoticiasTela extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         noticiasComboBox = new javax.swing.JComboBox<>();
         txf_titulo = new javax.swing.JTextField();
-        txf_resumo = new javax.swing.JTextField();
         txf_url = new javax.swing.JTextField();
         btn_novo = new javax.swing.JButton();
         btn_atualizar = new javax.swing.JButton();
         btn_remover = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
         btn_limpar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txf_resumo = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 255));
@@ -70,8 +71,6 @@ public class GerenciamentoNoticiasTela extends javax.swing.JFrame {
         });
 
         txf_titulo.setBorder(javax.swing.BorderFactory.createTitledBorder("Titulo"));
-
-        txf_resumo.setBorder(javax.swing.BorderFactory.createTitledBorder("Resumo"));
 
         txf_url.setBorder(javax.swing.BorderFactory.createTitledBorder("Url"));
 
@@ -125,6 +124,11 @@ public class GerenciamentoNoticiasTela extends javax.swing.JFrame {
             }
         });
 
+        txf_resumo.setColumns(20);
+        txf_resumo.setRows(5);
+        txf_resumo.setBorder(javax.swing.BorderFactory.createTitledBorder("Resumo"));
+        jScrollPane1.setViewportView(txf_resumo);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -135,27 +139,28 @@ public class GerenciamentoNoticiasTela extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txf_url))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(btn_novo)
-                        .addGap(30, 30, 30)
-                        .addComponent(btn_atualizar)
-                        .addGap(53, 53, 53)
-                        .addComponent(btn_remover)
-                        .addGap(31, 31, 31)
-                        .addComponent(btn_limpar)
-                        .addGap(0, 17, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txf_titulo))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txf_resumo)))
+                        .addComponent(txf_titulo)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(btn_novo)
+                .addGap(29, 29, 29)
+                .addComponent(btn_atualizar)
+                .addGap(63, 63, 63)
+                .addComponent(btn_remover)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(btn_limpar)
+                .addGap(18, 18, 18))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(204, 204, 204)
                 .addComponent(btn_voltar)
-                .addGap(194, 194, 194))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,19 +169,19 @@ public class GerenciamentoNoticiasTela extends javax.swing.JFrame {
                 .addComponent(noticiasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txf_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txf_resumo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(txf_url, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_remover, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -328,8 +333,9 @@ public class GerenciamentoNoticiasTela extends javax.swing.JFrame {
     private javax.swing.JButton btn_remover;
     private javax.swing.JButton btn_voltar;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<Noticia> noticiasComboBox;
-    private javax.swing.JTextField txf_resumo;
+    private javax.swing.JTextArea txf_resumo;
     private javax.swing.JTextField txf_titulo;
     private javax.swing.JTextField txf_url;
     // End of variables declaration//GEN-END:variables
