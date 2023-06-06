@@ -8,7 +8,7 @@ package com.mycompany.quiz.telas;
  *
  * @author mathe
  */
-import com.mycompany.quiz.Questao;
+import com.mycompany.quiz.models.Questao;
 import com.mycompany.quiz.daos.QuestaoDAO;
 import javax.swing.JOptionPane;
 import javax.swing.DefaultComboBoxModel;
@@ -57,12 +57,14 @@ public class QuestoesTela extends javax.swing.JFrame {
         btn_novo = new javax.swing.JButton();
         btn_atualizar = new javax.swing.JButton();
         btn_remover = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
+        btn_limpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de questões"));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gerenciamento de questões", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 0, 12))); // NOI18N
+        jPanel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
 
         questoesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +86,9 @@ public class QuestoesTela extends javax.swing.JFrame {
 
         txf_justificativa.setBorder(javax.swing.BorderFactory.createTitledBorder("Justificativa"));
 
+        btn_novo.setBackground(new java.awt.Color(51, 0, 204));
+        btn_novo.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_novo.setForeground(new java.awt.Color(255, 255, 255));
         btn_novo.setText("Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,16 +96,43 @@ public class QuestoesTela extends javax.swing.JFrame {
             }
         });
 
+        btn_atualizar.setBackground(new java.awt.Color(51, 0, 204));
+        btn_atualizar.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_atualizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_atualizar.setText("Atualizar");
+        btn_atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atualizarActionPerformed(evt);
+            }
+        });
 
+        btn_remover.setBackground(new java.awt.Color(51, 0, 204));
+        btn_remover.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_remover.setForeground(new java.awt.Color(255, 255, 255));
         btn_remover.setText("Remover");
+        btn_remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_removerActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cancelar");
-
+        btn_voltar.setBackground(new java.awt.Color(255, 0, 51));
+        btn_voltar.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_voltar.setForeground(new java.awt.Color(255, 255, 255));
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_voltarActionPerformed(evt);
+            }
+        });
+
+        btn_limpar.setBackground(new java.awt.Color(51, 0, 204));
+        btn_limpar.setFont(new java.awt.Font("MS UI Gothic", 1, 12)); // NOI18N
+        btn_limpar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_limpar.setText("Limpar");
+        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limparActionPerformed(evt);
             }
         });
 
@@ -120,18 +152,19 @@ public class QuestoesTela extends javax.swing.JFrame {
                     .addComponent(txf_alternativaCorreta)
                     .addComponent(txf_justificativa)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_remover, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btn_limpar)
+                        .addGap(0, 42, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(btn_voltar)
+                .addGap(169, 169, 169)
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -153,32 +186,26 @@ public class QuestoesTela extends javax.swing.JFrame {
                 .addComponent(txf_alternativaCorreta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txf_justificativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_remover, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_voltar)
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -245,6 +272,70 @@ public class QuestoesTela extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
 
+    private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
+        // TODO add your handling code here:
+        try {
+            QuestaoDAO dao = new QuestaoDAO();
+            Questao [] questoes = dao.obterQuestoes();
+            int posicao = questoesComboBox.getSelectedIndex();
+            String pergunta = txf_pergunta.getText();
+            String alternativaA = txf_alternativaA.getText();
+            String alternativaB = txf_alternativaB.getText();
+            String alternativaC = txf_alternativaC.getText();
+            String alternativaD = txf_alternativaD.getText();
+            String alternativaCorreta = txf_alternativaCorreta.getText();
+            String justificativa = txf_justificativa.getText();
+            questoes[posicao].setPergunta(pergunta);
+            questoes[posicao].setAlternativaA(alternativaA);
+            questoes[posicao].setAlternativaB(alternativaB);
+            questoes[posicao].setAlternativaC(alternativaC);
+            questoes[posicao].setAlternativaD(alternativaD);
+            questoes[posicao].setAlternativaCorreta(alternativaCorreta);
+            questoes[posicao].setJustificativa(justificativa);
+            dao.atualizaQuestao(questoes[posicao]);
+            JOptionPane.showMessageDialog(null, "Questão atualizada com sucesso");
+            buscarQuestoes();
+           
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Problemas técnicos volte mais tarde");
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_btn_atualizarActionPerformed
+
+    private void btn_removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removerActionPerformed
+        // TODO add your handling code here:
+        try {
+            QuestaoDAO dao = new QuestaoDAO();
+            Questao [] questoes = dao.obterQuestoes();
+            int posicao = questoesComboBox.getSelectedIndex();
+            dao.removeQuestao(questoes[posicao]);
+            JOptionPane.showMessageDialog(null, "Questão excluida com sucesso");
+            txf_pergunta.setText("");
+            txf_alternativaA.setText("");
+            txf_alternativaB.setText("");
+            txf_alternativaC.setText("");
+            txf_alternativaD.setText("");
+            txf_alternativaCorreta.setText("");
+            txf_justificativa.setText("");
+            buscarQuestoes();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Problemas técnicos tente novamente mais tarde");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btn_removerActionPerformed
+
+    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
+        // TODO add your handling code here:
+        txf_pergunta.setText("");
+        txf_alternativaA.setText("");
+        txf_alternativaB.setText("");
+        txf_alternativaC.setText("");
+        txf_alternativaD.setText("");
+        txf_alternativaCorreta.setText("");
+        txf_justificativa.setText("");
+    }//GEN-LAST:event_btn_limparActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -282,10 +373,10 @@ public class QuestoesTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atualizar;
+    private javax.swing.JButton btn_limpar;
     private javax.swing.JButton btn_novo;
     private javax.swing.JButton btn_remover;
     private javax.swing.JButton btn_voltar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<Questao> questoesComboBox;
     private javax.swing.JTextField txf_alternativaA;

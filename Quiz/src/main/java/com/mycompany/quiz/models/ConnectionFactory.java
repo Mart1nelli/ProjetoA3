@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.quiz;
+package com.mycompany.quiz.models;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.sql.DriverManager;
 
 public class ConnectionFactory {
     private String usuario = "root";
-    private String senha = "prina71";
+    private String senha = "root";
     private String host = "localhost";
     private String porta = "3306";
     private String bd = "db_quiz";
